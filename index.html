@@ -1,0 +1,180 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <title>О компании — ООО «Ротор»</title>
+  <link rel="icon" type="image/png" href="icon.png">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: "Segoe UI", Arial, sans-serif;
+    }
+
+    body, html {
+      height: 100%;
+      overflow: hidden;
+    }
+
+    /* Фоновая галерея */
+    .slideshow {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: -1;
+    }
+
+    .slideshow img {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      opacity: 0;
+      transition: opacity 2s ease-in-out;
+    }
+
+    .slideshow img.active {
+      opacity: 1;
+    }
+
+    /* Кнопка входа для сотрудников */
+    .employee-login {
+      position: fixed;
+      top: 20px;
+      right: 20px;
+      z-index: 10;
+    }
+
+    .employee-login a {
+      background: rgba(255, 255, 255, 0.9);
+      color: #333;
+      border: 2px solid #ffcc00;
+      padding: 10px 20px;
+      border-radius: 8px;
+      font-size: 1em;
+      font-weight: 600;
+      text-decoration: none;
+      transition: all 0.3s ease;
+      box-shadow: 0 0 8px rgba(0,0,0,0.3);
+    }
+
+    .employee-login a:hover {
+      background: #ffcc00;
+      color: black;
+    }
+
+    /* Контейнер с текстом */
+    .content {
+      position: relative;
+      z-index: 2;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.55);
+      color: white;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      padding: 40px;
+    }
+
+    h1 {
+      font-size: 3em;
+      margin-bottom: 20px;
+      color: #ffcc00;
+      text-shadow: 0 0 10px #000;
+    }
+
+    p {
+      font-size: 1.3em;
+      max-width: 900px;
+      line-height: 1.6em;
+      margin-bottom: 40px;
+      text-shadow: 0 0 6px #000;
+    }
+
+    .btn {
+      background: white;
+      color: #333;
+      border: 2px solid #ffcc00;
+      padding: 15px 30px;
+      border-radius: 10px;
+      font-size: 1.2em;
+      cursor: pointer;
+      text-decoration: none;
+      transition: all 0.3s ease;
+    }
+
+    .btn:hover {
+      background: #ffcc00;
+      color: black;
+    }
+
+    footer {
+      position: absolute;
+      bottom: 10px;
+      font-size: 0.9em;
+      color: #ccc;
+      text-shadow: 0 0 5px #000;
+    }
+  </style>
+</head>
+<body>
+  <div class="employee-login">
+    <a href="https://auth.rotorbus.ru" target="_blank">Войти как сотрудник</a>
+  </div>
+
+  <div class="slideshow">
+    <img src="ph1.jpg" class="active">
+    <img src="ph2.jpg">
+    <img src="ph3.jpg">
+    <img src="ph4.jpg">
+  </div>
+
+  <div class="content">
+    <h1>ООО «РОТОР»</h1>
+    <p>
+      ✨ РОТОР — Выше только звезды! ✨<br><br>
+      ООО «Ротор» — современное автотранспортное предприятие, специализирующееся на пассажирских перевозках по городу и за его пределами.  
+      Мы предоставляем комфортные автобусы, надежные маршруты и внимательное обслуживание.  
+      Наши водители и операторы — профессионалы своего дела, заботящиеся о безопасности и удобстве каждого пассажира.  
+      Благодаря опыту и высокому уровню сервиса, «Ротор» заслужил доверие тысяч горожан.  
+      Мы постоянно развиваемся и стремимся быть лучше — ведь для нас важно, чтобы каждая поездка оставляла только положительные эмоции!
+    </p>
+
+    <a href="https://vk.com/topic-224828742_54414445" class="btn" target="_blank">
+      💼 Трудоустройство в ООО «Ротор»
+    </a>
+    <br>
+    <a href="uvehicles.html" class="btn">
+      🚍 Наш транспорт
+    </a>
+    <br>
+    <a href="routes.html" class="btn">
+      Наши маршруты
+    </a>
+    <br>
+    <a href="https://vk.com/rotor_s7" class="btn">
+      Мы в ВК
+    </a>
+    
+
+    <footer>ООО «Ротор» by NeAdAppTar & ShaUru1118</footer>
+  </div>
+
+  <script>
+    const slides = document.querySelectorAll('.slideshow img');
+    let index = 0;
+
+    setInterval(() => {
+      slides[index].classList.remove('active');
+      index = (index + 1) % slides.length;
+      slides[index].classList.add('active');
+    }, 10000);
+  </script>
+</body>
+</html>
