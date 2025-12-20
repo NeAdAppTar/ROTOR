@@ -1,0 +1,79 @@
+<!doctype html>
+<html lang="ru">
+
+<head>
+  <meta charset="utf-8">
+  <!-- <meta name="viewport" content="width=device-width,initial-scale=1"> -->
+  <title>ROTOR — Маршруты</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="icon" type="image/png" href="icon.png">
+
+  <style>
+    .routes-container {
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+      margin-top: 40px;
+      flex-wrap: wrap;
+    }
+
+    .route-button {
+      cursor: pointer;
+      padding: 12px 24px;
+      font-size: 16px;
+      border: none;
+      border-radius: 8px;
+
+    }
+
+    .route-button:hover {
+      transform: translateY(-2px);
+    }
+
+    .route-button:active {
+      transform: translateY(1px);
+    }
+  </style>
+</head>
+
+<body>
+
+  <div class="container">
+    <h1>Маршруты</h1>
+    <div class="routes-grid">
+      <div class="tile">
+        <img src="route77.jpg" alt="Схема маршрута №77" class="route-img">
+        <h3>Маршрут №77</h3>
+        <p>Цена проезда: <span class="highlight">80 ₽</span></p>
+        <p>Зарплата за кругорейс: <span class="highlight">9000 ₽</span> </p>
+      </div>
+
+      <div class="tile">
+        <img src="route35.jpg" alt="Схема маршрута №35" class="route-img">
+        <h3>Маршрут №35</h3>
+        <p>Цена проезда: <span class="highlight">80 ₽</span></p>
+        <p>Зарплата за кругорейс: <span class="highlight">7200 ₽</span></p>
+      </div>
+
+      <div class="tile">
+        <img src="route92.jpg" alt="Схема маршрута №29п" class="route-img">
+        <h3>Маршрут №92п</h3>
+        <p>Цена проезда: <span class="highlight">125 ₽</span></p>
+        <p>Зарплата за кругорейс: <span class="highlight">5400 ₽</span></p>
+      </div>
+
+      <div class="tile">
+        <img src="route99.jpg" alt="Схема маршрута №99" class="route-img">
+        <h3>Маршрут №99</h3>
+        <p>Цена проезда: <span class="highlight">80 ₽</span></p>
+        <p>Зарплата за кругорейс: <span class="highlight">7200 ₽</span></p>
+      </div>
+    </div>
+
+    <div class="bonus-info" style="margin-top: 30px; text-align: center; font-size: 18px;">
+      <p><strong>Надбавки:</strong> за каждого пассажира — <span class="highlight">+2000 ₽</span>, за каждый класс — <span class="highlight">+1000 ₽</span> к кругорейсу.</p>
+    </div>
+  </div>
+</body>
+
+</html>
