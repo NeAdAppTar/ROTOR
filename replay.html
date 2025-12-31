@@ -17,12 +17,11 @@
          url('https://yastatic.net/s3/passport-static/core/v1.250.0/fonts/ys-text-bold/o9D1OOQkIM1tjIvuGeHuvA0EgWA.ttf') format('truetype');
 }
 
-/* ===== BASE ===== */
 * { box-sizing: border-box; }
 
 body {
     margin: 0;
-    font-family: 'YS Text', system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+    font-family: 'YS Text', system-ui, sans-serif;
     background: #000;
     color: #fff;
     overflow: hidden;
@@ -40,13 +39,12 @@ body {
     animation: bgFlow 22s infinite alternate ease-in-out;
     z-index: -1;
 }
-
 @keyframes bgFlow {
-    0%   { transform: translate(0,0) scale(1); }
+    0% { transform: translate(0,0) scale(1); }
     100% { transform: translate(10%,-10%) scale(1.25); }
 }
 
-/* ===== КОНТЕНТ ===== */
+/* ===== СЛАЙДЫ ===== */
 .wrapper {
     min-height: 100vh;
     display: flex;
@@ -62,37 +60,16 @@ body {
     display: none;
     animation: appear .6s ease forwards;
 }
-
 .slide.active { display: block; }
 
 @keyframes appear {
-    from {
-        opacity: 0;
-        transform: translateY(25px);
-        filter: blur(6px);
-    }
-    to {
-        opacity: 1;
-        transform: translateY(0);
-        filter: blur(0);
-    }
+    from { opacity: 0; transform: translateY(25px); filter: blur(6px); }
+    to   { opacity: 1; transform: translateY(0);  filter: blur(0); }
 }
 
-h1 {
-    font-size: 46px;
-    margin-bottom: 20px;
-}
-
-h2 {
-    font-size: 40px;
-    margin-bottom: 15px;
-}
-
-p {
-    font-size: 20px;
-    opacity: .9;
-    line-height: 1.45;
-}
+h1 { font-size: 46px; margin-bottom: 20px; }
+h2 { font-size: 40px; margin-bottom: 15px; }
+p  { font-size: 20px; opacity: .9; line-height: 1.45; }
 
 /* ===== СТАТИСТИКА ===== */
 .stats {
@@ -101,14 +78,12 @@ p {
     gap: 25px;
     margin-top: 40px;
 }
-
 .stat {
     background: rgba(0,0,0,.65);
     border: 1px solid rgba(255,215,0,.35);
     border-radius: 20px;
     padding: 28px;
 }
-
 .stat b {
     display: block;
     font-size: 36px;
@@ -117,9 +92,7 @@ p {
 }
 
 /* ===== КНОПКИ ===== */
-.controls {
-    margin-top: 50px;
-}
+.controls { margin-top: 50px; }
 
 button {
     font-family: 'YS Text', sans-serif;
@@ -133,7 +106,6 @@ button {
     color: #000;
     transition: transform .2s ease, box-shadow .2s ease;
 }
-
 button:hover {
     transform: translateY(-2px);
     box-shadow: 0 12px 30px rgba(255,215,0,.45);
@@ -147,12 +119,8 @@ button:hover {
     top: -20px;
     animation: fall linear forwards;
 }
-
 @keyframes fall {
-    to {
-        transform: translateY(110vh) rotate(360deg);
-        opacity: 0;
-    }
+    to { transform: translateY(110vh) rotate(360deg); opacity: 0; }
 }
 </style>
 </head>
@@ -162,14 +130,24 @@ button:hover {
 
 <div class="wrapper">
 
+<!-- СТАРТ -->
 <div class="slide active">
     <h1>Привет!</h1>
     <p>Подведём итоги 2025 года вместе с ООО «Ротор»</p>
 
     <div class="stats">
-        <div class="stat"><b>30 000 000+</b>рублей вложено</div>
-        <div class="stat"><b>590</b>кругорейсов</div>
-        <div class="stat"><b>166</b>пассажиров</div>
+        <div class="stat">
+            <b data-target="30000000">0</b>
+            рублей вложено
+        </div>
+        <div class="stat">
+            <b data-target="590">0</b>
+            кругорейсов
+        </div>
+        <div class="stat">
+            <b data-target="166">0</b>
+            пассажиров
+        </div>
     </div>
 
     <div class="controls">
@@ -185,7 +163,7 @@ button:hover {
 
 <div class="slide">
     <h2>7 сентября 2025</h2>
-    <p>Открыта первая выпускная площадка в Приволжске</p>
+    <p>Первая выпускная площадка в Приволжске</p>
     <div class="controls"><button onclick="next()">Далее</button></div>
 </div>
 
@@ -198,7 +176,6 @@ button:hover {
 <div class="slide">
     <h2>Сеть «Магистраль»</h2>
     <p>
-        Новая междугородняя сеть маршрутов:<br><br>
         м1 — Жуковский · Приволжск · Невский<br>
         м2 — Завод ЖБК · Невский · Мирный<br>
         м3 — Волчанск · Мирный · Приволжск
@@ -209,7 +186,7 @@ button:hover {
 <div class="slide">
     <h2>Новый метод работы</h2>
     <p>
-        • новые рабочие чаты и единая доска приказов<br>
+        • новые рабочие чаты<br>
         • сменные графики<br>
         • выход строго по расписанию<br>
         • обязательный аварийный инвентарь
@@ -219,24 +196,52 @@ button:hover {
 
 <div class="slide">
     <h1>С Новым 2026 годом! 🎉</h1>
-    <p>Спасибо каждому сотруднику ООО «Ротор».<br>Вперёд — к новым маршрутам.</p>
+    <p>Спасибо каждому сотруднику ООО «Ротор».</p>
     <div class="controls">
         <button onclick="celebrate()">Отпраздновать</button>
     </div>
 </div>
-
 
 </div>
 
 <script>
 const slides = document.querySelectorAll('.slide');
 let current = 0;
+let countersStarted = false;
 
 function next() {
     slides[current].classList.remove('active');
     current++;
     slides[current].classList.add('active');
 }
+
+function animateCounters() {
+    if (countersStarted) return;
+    countersStarted = true;
+
+    document.querySelectorAll('[data-target]').forEach(el => {
+        const target = Number(el.dataset.target);
+        let value = 0;
+
+        const duration = 1500; // мс
+        const start = performance.now();
+
+        function update(now) {
+            const progress = Math.min((now - start) / duration, 1);
+            value = Math.floor(progress * target);
+            el.textContent = value.toLocaleString('ru-RU');
+
+            if (progress < 1) {
+                requestAnimationFrame(update);
+            } else {
+                el.textContent = target.toLocaleString('ru-RU');
+            }
+        }
+        requestAnimationFrame(update);
+    });
+}
+
+window.addEventListener('load', animateCounters);
 
 function celebrate() {
     for (let i = 0; i < 140; i++) {
