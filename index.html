@@ -2,28 +2,41 @@
 <html lang="ru">
 <head>
   <meta charset="utf-8">
-  <title>О компании — ООО «Ротор»</title>
+  <title>ООО «Ротор»</title>
   <link rel="icon" type="image/png" href="icon.png">
+
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
   <style>
+    /* ===== Шрифт YS Text ===== */
+    @font-face {
+      font-family: 'YS Text';
+      font-weight: 700;
+      font-style: normal;
+      src: local('YS Text Bold'),
+        url('https://yastatic.net/s3/passport-static/core/v1.250.0/fonts/ys-text-bold/TR2STky64Ra69XlYzqKN7cnjYfQ.woff2') format('woff2'),
+        url('https://yastatic.net/s3/passport-static/core/v1.250.0/fonts/ys-text-bold/6n8FrCwGXwQ5ZumBk1SCxOl2ec8.woff') format('woff'),
+        url('https://yastatic.net/s3/passport-static/core/v1.250.0/fonts/ys-text-bold/o9D1OOQkIM1tjIvuGeHuvA0EgWA.ttf') format('truetype');
+    }
+
     * {
       margin: 0;
       padding: 0;
       box-sizing: border-box;
-      font-family: "Segoe UI", Arial, sans-serif;
+      font-family: "YS Text", "Segoe UI", Roboto, sans-serif;
     }
 
-    body, html {
+    html, body {
       height: 100%;
       overflow: hidden;
+      color: #fff;
     }
 
-    /* Фоновая галерея */
+    /* Фон */
     .slideshow {
       position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
+      inset: 0;
       z-index: -1;
     }
 
@@ -40,7 +53,7 @@
       opacity: 1;
     }
 
-    /* Кнопка входа для сотрудников */
+    /* Кнопка портала */
     .employee-login {
       position: fixed;
       top: 20px;
@@ -49,124 +62,172 @@
     }
 
     .employee-login a {
-      background: rgba(255, 255, 255, 0.9);
-      color: #333;
-      border: 2px solid #ffcc00;
-      padding: 10px 20px;
-      border-radius: 8px;
-      font-size: 1em;
-      font-weight: 600;
+      padding: 14px 22px;
+      border-radius: 20px;
+      background: linear-gradient(90deg, #ffcc00, #ffd84d);
+      color: #222;
+      font-weight: 700;
       text-decoration: none;
-      transition: all 0.3s ease;
-      box-shadow: 0 0 8px rgba(0,0,0,0.3);
+      transition: 0.2s ease-in-out;
+      box-shadow: 0 6px 15px rgba(0,0,0,0.4);
     }
 
     .employee-login a:hover {
-      background: #ffcc00;
-      color: black;
+      transform: scale(1.05);
     }
 
-    /* Контейнер с текстом */
+    /* Контент */
     .content {
-      position: relative;
-      z-index: 2;
-      width: 100%;
       height: 100%;
-      background: rgba(0, 0, 0, 0.55);
-      color: white;
+      background: rgba(0,0,0,0.55);
       display: flex;
       flex-direction: column;
       justify-content: center;
       align-items: center;
       text-align: center;
-      padding: 40px;
+      padding: 30px;
     }
 
     h1 {
       font-size: 3em;
-      margin-bottom: 20px;
       color: #ffcc00;
+      margin-bottom: 10px;
       text-shadow: 0 0 10px #000;
     }
 
-    p {
-      font-size: 1.3em;
-      max-width: 900px;
-      line-height: 1.6em;
-      margin-bottom: 40px;
+    h2 {
+      margin: 30px 0 20px;
+      color: #ffcc00;
       text-shadow: 0 0 6px #000;
     }
 
+    /* Иконки */
+    .icon-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 30px;
+      max-width: 900px;
+      width: 100%;
+      margin-bottom: 20px;
+    }
+
+    .icon-item {
+      background: rgba(0,0,0,0.45);
+      border-radius: 20px;
+      padding: 25px 15px;
+      box-shadow: 0 0 20px rgba(0,0,0,0.5);
+    }
+
+    .icon-item i {
+      font-size: 3.5em;
+      color: #ffcc00;
+      margin-bottom: 15px;
+    }
+
+    .icon-item p {
+      font-size: 1.05em;
+      line-height: 1.4em;
+    }
+
+    /* ===== Новые кнопки ===== */
     .btn {
-      background: white;
-      color: #333;
-      border: 2px solid #ffcc00;
-      padding: 15px 30px;
-      border-radius: 10px;
-      font-size: 1.2em;
-      cursor: pointer;
+      width: 320px;
+      margin-top: 15px;
+      padding: 16px;
+      border: none;
+      border-radius: 20px;
+      background: linear-gradient(90deg, #ffcc00, #ffd84d);
+      color: #222;
+      font-weight: 700;
+      font-size: 1rem;
       text-decoration: none;
-      transition: all 0.3s ease;
+      cursor: pointer;
+      transition: all 0.2s ease-in-out;
+      box-shadow: 0 6px 15px rgba(0,0,0,0.4);
     }
 
     .btn:hover {
-      background: #ffcc00;
-      color: black;
+      background: linear-gradient(90deg, #ffd84d, #ffcc00);
+      transform: scale(1.03);
     }
 
     footer {
       position: absolute;
       bottom: 10px;
-      font-size: 0.9em;
+      font-size: 0.85em;
       color: #ccc;
-      text-shadow: 0 0 5px #000;
     }
   </style>
 </head>
 <body>
-  <div class="employee-login">
-    <a href="https://auth.rotorprov.ru" target="_blank">Сервисный портал работника</a>
+
+<div class="employee-login">
+  <a href="https://auth.rotorprov.ru" target="_blank">Сервисный портал работника</a>
+</div>
+
+<div class="slideshow">
+  <img src="ph1.jpg" class="active">
+  <img src="ph2.jpg">
+  <img src="ph3.jpg">
+  <img src="ph4.jpg">
+</div>
+
+<div class="content">
+  <h1>ООО «РОТОР»</h1>
+  <p> ✨ РОТОР — Выше только пенис! ✨<br><br></p>
+
+  <h2>Работа у нас — это</h2>
+  <div class="icon-grid">
+    <div class="icon-item">
+      <i class="fa-solid fa-wallet"></i>
+      <p>Стабильная зарплата<br>в крупной компании</p>
+    </div>
+    <div class="icon-item">
+      <i class="fa-solid fa-bus"></i>
+      <p>Новый подвижной состав</p>
+    </div>
   </div>
 
-  <div class="slideshow">
-    <img src="ph1.jpg" class="active">
-    <img src="ph2.jpg">
-    <img src="ph3.jpg">
-    <img src="ph4.jpg">
+  <h2>Наши ожидания от кандидатов</h2>
+  <div class="icon-grid">
+    <div class="icon-item">
+      <i class="fa-solid fa-id-card"></i>
+      <p>Водительское удостоверение категории D</p>
+    </div>
+    <div class="icon-item">
+      <i class="fa-solid fa-road"></i>
+      <p>Опыт работы на автобусе</p>
+    </div>
+    <div class="icon-item">
+      <i class="fa-solid fa-coins"></i>
+      <p>Желание стабильно зарабатывать</p>
+    </div>
+    <div class="icon-item">
+      <i class="fa-solid fa-building"></i>
+      <p>Работа в крупной компании</p>
+    </div>
   </div>
 
-  <div class="content">
-    <h1>ООО «РОТОР»</h1>
-    <p>
-      ✨ РОТОР — Выше только пенис! ✨<br><br>
-      ООО «Ротор» — современное автотранспортное предприятие, специализирующееся на пассажирских перевозках по городу и за его пределами.  
-      Мы предоставляем комфортные автобусы, надежные маршруты и внимательное обслуживание.  
-      Наши водители и операторы — профессионалы своего дела, заботящиеся о безопасности и удобстве каждого пассажира.  
-      Благодаря опыту и высокому уровню сервиса, «Ротор» заслужил доверие тысяч горожан.  
-      Мы постоянно развиваемся и стремимся быть лучше — ведь для нас важно, чтобы каждая поездка оставляла только положительные эмоции!
-    </p>
+  <a href="https://vk.com/topic-224828742_54414445" class="btn" target="_blank">
+    Оставить заявку
+  </a>
 
-    <a href="https://vk.com/topic-224828742_54414445" class="btn" target="_blank">
-      💼 Трудоустройство в ООО «Ротор»
-    </a>
-    <br>
-    <a href="https://vk.com/rotor_s7" class="btn">
-      Мы в ВК
-    </a>
-    
+  <a href="https://vk.com/rotor_s7" class="btn">
+    Мы в ВК
+  </a>
 
-    <footer>ООО «Ротор» by NeAdAppTar & ShaUru1118</footer>
-  </div>
+  <footer>ООО «Ротор» by NeAdAppTar & ShaUru1118</footer>
+</div>
 
-  <script>
-    const slides = document.querySelectorAll('.slideshow img');
-    let index = 0;
+<script>
+  const slides = document.querySelectorAll('.slideshow img');
+  let index = 0;
+  setInterval(() => {
+    slides[index].classList.remove('active');
+    index = (index + 1) % slides.length;
+    slides[index].classList.add('active');
+  }, 10000);
+</script>
 
-    setInterval(() => {
-      slides[index].classList.remove('active');
-      index = (index + 1) % slides.length;
-      slides[index].classList.add('active');
-    }, 10000);
-  </script>
 </body>
 </html>
