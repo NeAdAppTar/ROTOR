@@ -4,7 +4,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>I LOVE YOU</title>
+  <title>Heart Protocol</title>
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -159,6 +159,56 @@
       animation-delay: 2.5s;
     }
 
+    @media (max-width: 768px) {
+
+      .console {
+        width: 92vw;
+      }
+
+      .line {
+        font-size: 11px;
+        gap: 8px;
+        margin-bottom: 10px;
+        flex-wrap: wrap;
+      }
+
+      .button {
+        width: 100%;
+        justify-content: center;
+        padding: 16px;
+        font-size: 11px;
+        letter-spacing: 2px;
+      }
+
+      .title {
+        width: 90vw;
+      }
+
+      .title h1 {
+        font-size: 24px;
+        letter-spacing: 5px;
+      }
+
+      .hud {
+        font-size: 8px;
+        line-height: 1.5;
+      }
+
+      .hud.left {
+        top: 16px;
+        left: 16px;
+      }
+
+      .hud.right {
+        bottom: 16px;
+        right: 16px;
+      }
+
+      .muted {
+        font-size: 10px;
+      }
+    }
+
     .title h1 {
       color: #ff4d6d;
       letter-spacing: 10px;
@@ -263,7 +313,7 @@
     <canvas id="heart"></canvas>
 
     <div class="title">
-     <!-- <h1>Decrypted</h1> -->
+      <h1></h1>
       <div class="line-small"></div>
       <button class="rebtn" id="backBtn">Re-encrypt</button>
     </div>
@@ -363,8 +413,14 @@ function createHeart() {
   points = [];
 
   const centerX = canvas.width / 2;
-  const centerY = canvas.height / 2;
-  const scale = Math.min(canvas.width, canvas.height) / 42;
+  const centerY = window.innerWidth < 768
+    ? canvas.height / 2 - 30
+    : canvas.height / 2;
+  const mobile = window.innerWidth < 768;
+
+  const scale = mobile
+    ? Math.min(canvas.width, canvas.height) / 52
+    : Math.min(canvas.width, canvas.height) / 42;
 
   for (let layer = 1; layer >= 0.2; layer -= 0.2) {
 
@@ -395,7 +451,9 @@ function animate(time) {
 
   ctx.clearRect(0, 0, canvas.width, canvas.height);
 
-  ctx.font = '14px Fira Code';
+  ctx.font = window.innerWidth < 768
+    ? '9px Fira Code'
+    : '14px Fira Code';
 
   points.forEach((p) => {
 
