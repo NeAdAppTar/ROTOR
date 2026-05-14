@@ -4,7 +4,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Heart Protocol</title>
+  <title>I LOVE YOU</title>
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -419,7 +419,7 @@ function createHeart() {
   const mobile = window.innerWidth < 768;
 
   const scale = mobile
-    ? Math.min(canvas.width, canvas.height) / 52
+    ? Math.min(canvas.width, canvas.height) / 44
     : Math.min(canvas.width, canvas.height) / 42;
 
   for (let layer = 1; layer >= 0.2; layer -= 0.2) {
@@ -451,8 +451,10 @@ function animate(time) {
 
   ctx.clearRect(0, 0, canvas.width, canvas.height);
 
+  const mobileFont = Math.max(11, window.innerWidth / 34);
+
   ctx.font = window.innerWidth < 768
-    ? '9px Fira Code'
+    ? `${mobileFont}px Fira Code`
     : '14px Fira Code';
 
   points.forEach((p) => {
